@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Listing</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+body {
+    font-family: sans-serif, serif;
+    text-rendering: optimizeSpeed;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 68px;
+    background-color: #fff;
+    z-index: 1;
+}
+
+.header_container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0px 160px;
+}
+
+.header_list-right ul {
+    display: flex;
+    list-style: none;
+}
+
+.header_list-right ul li a {
+    font-size: 14px;
+    padding: 15px;
+    font-weight: 500;
+    line-height: 68px;
+    text-decoration: none;
+    color: #90949b;
+}
+
+.header_logo img {
+    display: inline-block;
+    line-height: 68px;
+}
+
+.header_list-left {
+    display: flex;
+    align-items: center;
+}
+
+.header_list-left-text {
+    padding: 9px 10px 9px 9px;
+    border-radius: 4px;
+    background: none;
+    border: none;
+    outline: 1px solid #d7d9dd;
+    color: #e8e2e2;
+    font-size: 14px;
+}
+
+.header_list-left-text i {
+    font-size: 10px;
+    color: #a1a0a0;
+    margin-right: 4px;
+}
+
+.header_list-left-text input {
+    border: none;
+    outline: none;
+}
+
+.header_list-left-text input::placeholder {
+    font-size: 14px;
+    color: #dddedf;
+}
+
+.body_bacground {
+   width: 100%;
+   margin-top: 68px;
+}
+
+.body_background-img {
+    width: 100%;
+    background-repeat: no-repeat;
+    height: 400px;
+    display: inline-block;
+    background-size: cover;
+}
+
+.body_bacground-content {
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 168px;
+}
+
+.body_bacground-content h1 {
+    font-size: 54px;
+    margin-bottom: 10px;
+    color: #323842;
+}
+
+.body_bacground-content p {
+    font-weight: 500;
+    font-size: 18px;
+    letter-spacing: 0.7px;
+    line-height: 1.6;
+    color: #40454d;
+}
+
+.product {
+    margin-top: 60px;
+}
+
+.product_container {
+    margin: 0px 170px;
+}
+
+.product_head {
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.product_head-find {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+
+.product_head-find ul {
+    list-style: none;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+
+.product_head-find ul li a{
+    text-decoration: none;
+    padding: 16px 48px;
+    border-radius: 4px;
+    color: #459d7a;
+    display: inline-block;
+    margin-right: 40px;
+}
+
+.product_head-find-list li:first-child a {
+    background-color: #459d7a;
+    color: #fff;
+}
+
+.product_head-find ul li:nth-child(2) a {
+    position: relative;
+}
+
+.product_head-find ul li:nth-child(2) a::after {
+    display: inline-block;
+    content: "";
+    width: 1px;
+    height: 24px;
+    background-color: #459d7a;
+    position: absolute;
+    right: -9px;
+    top: 14px;
+}
+
+.product_head-search-item-1 {
+    padding: 11px 14px 11px 12px;
+    background: none;
+    border: none;
+    border-bottom: 2px solid #d7d9dd;
+    color: #e8e2e2;
+    font-size: 14px;
+    display: inline-block;
+}
+
+.product_head-search-item-1 input {
+    border: none;
+    outline: none;
+    padding-top: 4px;
+}
+
+.product_head-search-item-1 i {
+    color: #a1a0a0;
+    margin-left: 10px;
+    margin-right: 4px;
+    font-size: 16px;
+}
+
+.product_head-search-item-1 input::placeholder {
+    font-size: 18px;
+    color: #e8eaec;
+}
+
+.product_head-search-item-2 {
+    margin-left: 14px;
+    padding: 14px 18px;
+    font-size: 17px;
+    background-color: #f3f4f6;
+    border-radius: 2px;
+}
+
+.product_head-search-item-2 a {
+    color: #777e89;
+    text-decoration: none;
+}
+
+.product_head-search-item-2 i {
+    margin-left: 7px;
+}
+
+.product_body-list {
+    margin-top: 60px;
+}
+
+.product_body-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    list-style: none;
+}
+
+.product_body-list-item {
+    margin-bottom: 74px;
+}
+
+.product_body-list-item h4 {
+    margin-top: 20px;
+    font-size: 18px;
+    letter-spacing: 0.4px;
+}
+
+.product_body-list-item p {
+    margin-top: 8px;
+    font-size: 14px;
+    color: #7a7b7e;
+}
+
+.product_body-list-item-price {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-between;
+}
+
+.product_body-list-item-newprice {
+    font-size: 32px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    color: #323842;
+}
+
+.product_body-list-item-oldprice {
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    color: #b4b7be;
+    margin-left: 4px;
+    position: relative;
+    top: -4px;
+}
+
+.product_body-list-item {
+    position: relative;
+}
+
+.best_seller::before {
+    display: inline-block;
+    content: "Best-seller";
+    font-size: 13px;
+    padding: 6px 10px;
+    border-radius: 999px;
+    color: #8d5e12;
+    background-color: #ffc970;
+    position: absolute;
+    top: 13px;
+    right: 13px;
+}
+
+.new::before {
+    display: inline-block;
+    content: "New";
+    font-size: 13px;
+    padding: 6px 10px;
+    border-radius: 999px;
+    color: #8d5e12;
+    background-color: #ffc970;
+    position: absolute;
+    top: 13px;
+    right: 13px;
+}
+
+.product_next_page {
+    margin-top: 16px;
+}
+
+.product_next_page-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.product_next_page-item span {
+    padding: 9px 12px;
+    margin: 0px 8px;
+    border-radius: 50%;
+    color: #afb2ba;
+    cursor: pointer;
+}
+
+.product_next_page-item span:nth-child(3) {
+    background-color: #f4faf8;
+    color: #53a484;
+}
+
+.product_next_page-item img {
+    cursor: pointer;
+}
+.footer {
+    margin-top: 90px;
+    padding: 110px 0px;
+    background-color: #1d2128;
+}
+
+.footer_container {
+    display: flex;
+    justify-content: space-between;
+    margin: 0px 170px;
+}
+
+.footer_content-left {
+    display: flex;
+}
+
+.footer_content-left-list {
+    margin-right: 40px;
+}
+
+.footer_content-left-heading {
+    font-size: 22px;
+    color: #dee1e6;
+}
+
+.footer_content-left-list ul {
+    list-style: none;
+    margin-top: 17px;
+}
+
+.footer_content-left-list ul li a{
+    text-decoration: none;
+    color: #babdc3;
+    display: inline-block;
+    padding-bottom: 17px;
+    font-size: 15px;
+}
+
+.footer_content-list-item-tel,
+.footer_content-list-item-email {
+    color: #ebedf2 !important;
+}
+
+.footer_content-left-list ul li select {
+    border: 1px solid #fff;
+    background-color: #000;
+    color: #babdc3;
+    padding: 8px 19px;
+    padding-right: 40px;
+    font-size: 15px;
+    border-radius: 4px;
+    appearance: none;
+    -webkit-appearance: none;
+    display: inline-block;
+}
+.icon_select {
+    position: relative;
+    top: 2px;
+    right: 30px;
+    color: #babdc3;
+}
+
+.footer_content-right-list h2 {
+    font-size: 25px;
+    color: #dee1e6;
+}
+
+.footer_content-right-list p {
+    color: #babdc3;
+    margin-top: 17px;
+}
+
+.footer_content-right-list-email {
+    display: flex;
+    margin-top: 15px;
+}
+
+.footer_content-right-list-email span {
+    display: inline-block;
+    padding: 14px 30px 14px 18px;
+    border: 1px solid #848994;
+    border-right: none;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+    position: relative;
+}
+
+.footer_content-right-list-email span i {
+    position: absolute;
+    color: #dee1e6;
+    top: 16px;
+}
+
+.footer_content-right-list-email span input {
+    margin-left: 12px;
+    background-color: #1d2128;
+    outline: none;
+    border: none;
+}
+
+.footer_content-right-list-email span input::placeholder {
+    font-size: 17px;
+    color: #babdc3;;
+}
+
+.footer_content-right-list-email span input[type="text"]:focus {
+    color: #babdc3;
+}
+
+.footer_content-right-list-email input{
+    padding: 0px 16px;
+    font-size: 17px;
+    color: #dee1e6;
+    background-color: #459d7a;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    border: 1px solid #459d7a;
+    border-left: none;
+    cursor: pointer;
+}
+
+.footer_content-right-list-icon {
+    margin-top: 20px;
+}
+
+.footer_content-right-list-copyright {
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+}
+
+.footer_content-right-list-copyright p {
+    margin-right: 10px;
+    color: #babdc3;
+}
+
+.footer_content-right-list-copyright ul {
+    display: flex;
+    align-items: center;
+    margin-top: 17px;
+}
+
+.footer_content-right-list-copyright ul li {
+    color: #babdc3;
+    margin: 0px 14px;
+}
+    </style>
+
+</head>
+<body>
+    <header class="header">
+        <div class="header_container">
+            <div class="header_list-right">
+                <ul>
+                    <li><a href="#!">Shop</a></li>
+                    <li><a href="#!">Offers</a></li>
+                    <li><a href="#!">Our story</a></li>
+                    <li><a href="#!">Blog</a></li>
+                </ul>
+            </div>
+            <div class="header_logo">
+                <a href="#!"><img src="./img/logo.png" alt="logo"></a>
+            </div>
+            <div class="header_list-left">
+                <span type="button" class="header_list-left-text">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" placeholder="Search product...">
+                </span>
+                <span class="header_list-left-cart">
+                    <a href="#!"><img src="./img/cart.png" alt="Cart"></a>
+                </span>
+                <span class="header_list-left-user">
+                    <a href="#!"><img src="./img/user.png" alt="User"></a>
+                </span>
+            </div>
+        </div>
+    </header>
+    <div class="body_bacground">
+        <div class="body_background-img" style="background-image: url(./img/background.png);">
+            <div class="body_bacground-content">
+                <h1>Gift for your skin</h1>
+                <p>Aliquip fugiat ipsum nostrud ex et eu incididunt <br> quis minim dolore excepteur voluptate</p>
+            </div>
+        </div>
+    </div>
+    <div class="product">
+        <div class="product_container">
+            <div class="product_head">
+                <div class="product_head-find">
+                    <ul class="product_head-find-list">
+                        <li><a href="">All Product</a></li>
+                        <li><a href="">Face</a></li>
+                        <li><a href="">Body</a></li>
+                    </ul>
+                </div>
+                <div class="product_head-search">
+                    <span class="product_head-search-item-1">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" placeholder="Search product...">
+                    </span>
+                    <span class="product_head-search-item-2">
+                        <a href="#!">Sort by<i class="fa-solid fa-bars"></i></a>
+                    </span>
+                </div>
+            </div>
+            <div class="product_body">
+                <ul class="product_body-list">
+                    <li class="product_body-list-item best_seller">
+                        <a href=""><img src="./img/product1.png" alt=""></a>
+                        <h4>Product title</h4>
+                        <p>Labore sint ipsum dolore mollit</p>
+                        <div class="product_body-list-item-price">
+                            <div>
+                                <span class="product_body-list-item-newprice">$32</span>
+                                <span class="product_body-list-item-oldprice">$42</span>
+                            </div>                    
+                            <img src="./img/cart1.png" alt="Cart">
+                        </div>
+                    </li>
+                    <li class="product_body-list-item best_seller">
+                        <a href=""><img src="./img/product2.png" alt=""></a>
+                        <h4>Product title</h4>
+                        <p>Labore sint ipsum dolore mollit</p>
+                        <div class="product_body-list-item-price">
+                            <div>
+                                <span class="product_body-list-item-newprice">$22</span>
+                                <span class="product_body-list-item-oldprice">$28</span>
+                            </div>    
+                            <img src="./img/cart1.png" alt="Cart">
+                        </div>
+                    </li>
+                    <li class="product_body-list-item best_seller">
+                        <a href=""><img src="./img/product3.png" alt=""></a>
+                        <h4>Product title</h4>
+                        <p>Labore sint ipsum dolore mollit</p>
+                        <div class="product_body-list-item-price">
+                            <div>
+                                <span class="product_body-list-item-newprice">$18</span>
+                                <span class="product_body-list-item-oldprice">$26</span>
+                            </div>      
+                            <img src="./img/cart1.png" alt="Cart">
+                        </div>
+                    </li>
+                    <li class="product_body-list-item best_seller">
+                        <a href=""><img src="./img/product4.png" alt=""></a>
+                        <h4>Product title</h4>
+                        <p>Labore sint ipsum dolore mollit</p>
+                        <div class="product_body-list-item-price">
+                            <div>
+                                <span class="product_body-list-item-newprice">$48</span>
+                                <span class="product_body-list-item-oldprice">$56</span>
+                            </div>          
+                            <img src="./img/cart1.png" alt="Cart">
+                        </div>
+                    </li>
+                    <li class="product_body-list-item">
+                        <a href=""><img src="./img/product5.png" alt=""></a>
+                        <h4>Product title</h4>
+                        <p>Labore sint ipsum dolore mollit</p>
+                        <div class="product_body-list-item-price">
+                            <span class="product_body-list-item-newprice">$31</span>
+                            <img src="./img/cart1.png" alt="Cart">
+                        </div>
+                    </li>
+                    <li class="product_body-list-item new">
+                        <a href=""><img src="./img/product6.png" alt=""></a>
+                        <h4>Product title</h4>
+                        <p>Labore sint ipsum dolore mollit</p>
+                        <div class="product_body-list-item-price">
+                            <div>
+                                <span class="product_body-list-item-newprice">$40</span>
+                                <span class="product_body-list-item-oldprice">$48</span>
+                            </div>        
+                            <img src="./img/cart1.png" alt="Cart">
+                        </div>
+                    </li>
+                    <li class="product_body-list-item">
+                        <a href=""><img src="./img/product7.png" alt=""></a>
+                        <h4>Product title</h4>
+                        <p>Labore sint ipsum dolore mollit</p>
+                        <div class="product_body-list-item-price">
+                            <span class="product_body-list-item-newprice">$26</span>
+                            <img src="./img/product_cart1.png" alt="Cart">
+                        </div>
+                    </li>
+                    <li class="product_body-list-item">
+                        <a href=""><img src="./img/product8.png" alt=""></a>
+                        <h4>Product title</h4>
+                        <p>Labore sint ipsum dolore mollit</p>
+                        <div class="product_body-list-item-price">
+                            <span class="product_body-list-item-newprice">$18</span>
+                            <img src="./img/cart1.png" alt="Cart">
+                        </div>
+                    </li>
+                    <li class="product_body-list-item new">
+                        <a href=""><img src="./img/product9.png" alt=""></a>
+                        <h4>Product title</h4>
+                        <p>Labore sint ipsum dolore mollit</p>
+                        <div class="product_body-list-item-price">
+                            <span class="product_body-list-item-newprice">$52</span>
+                            <img src="./img/cart1.png" alt="Cart">
+                        </div>
+                    </li>
+                    <li class="product_body-list-item">
+                        <a href=""><img src="./img/product10.png" alt=""></a>
+                        <h4>Product title</h4>
+                        <p>Labore sint ipsum dolore mollit</p>
+                        <div class="product_body-list-item-price">
+                            <div>
+                                <span class="product_body-list-item-newprice">$47</span>
+                                <span class="product_body-list-item-oldprice">$42</span>
+                            </div>    
+                            <img src="./img/cart1.png" alt="Cart">
+                        </div>
+                    </li>
+                    <li class="product_body-list-item">
+                        <a href=""><img src="./img/product11.png" alt=""></a>
+                        <h4>Product title</h4>
+                        <p>Labore sint ipsum dolore mollit</p>
+                        <div class="product_body-list-item-price">
+                            <span class="product_body-list-item-newprice">$44</span>
+                            <img src="./img/cart1.png" alt="Cart">
+                        </div>
+                    </li>
+                    <li class="product_body-list-item new">
+                        <a href=""><img src="./img/product12.png" alt=""></a>
+                        <h4>Product title</h4>
+                        <p>Labore sint ipsum dolore mollit</p>
+                        <div class="product_body-list-item-price">
+                            <div>
+                                <span class="product_body-list-item-newprice">$32</span>
+                                <span class="product_body-list-item-oldprice">$42</span>
+                            </div>          
+                            <img src="./img/cart1.png" alt="Cart">
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="product_next_page">
+                <div class="product_next_page-item">
+                    <img src="./img/prev.png" alt="prev">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <img src="./img/next.png" alt="next">
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="footer_container">
+            <section class="footer_content-left">
+                <section class="footer_content-left-list">
+                    <h2 class="footer_content-left-heading">About</h2>
+                    <ul class="footer_content-list-item">
+                        <li>
+                            <a href="#!">Home</a>
+                        </li>
+                        <li>
+                            <a href="#!">Shop</a>
+                        </li>
+                        <li>
+                            <a href="#!">Our story</a>
+                        </li>
+                        <li>
+                            <a href="#!">Blogs</a>
+                        </li>
+                        <li>
+                            <select name="select" id="select">
+                                <option value="English">English</option>
+                                <option value="TiegViet">Tiếng Việt</option>
+                                <option value="France">France</option>
+                            </select>
+                            <i class="fa-solid fa-angle-down icon_select"></i>
+                        </li>
+                    </ul>
+                </section>
+                <section class="footer_content-left-list">
+                    <h2 class="footer_content-left-heading">Help</h2>
+                    <ul class="footer_content-list-item">
+                        <li>
+                            <a href="#!">Shipping & Returns</a>
+                        </li>
+                        <li>
+                            <a href="#!">Track Order</a>
+                        </li>
+                        <li>
+                            <a href="#!">FAQs</a>
+                        </li>
+                    </ul>
+                </section>
+                <section class="footer_content-left-list">
+                    <h2 class="footer_content-left-heading">Contact</h2>
+                    <ul class="footer_content-list-item">
+                        <li>
+                            <a href="#!">Phone:</a>
+                        </li>
+                        <li>
+                            <a href="tel:1234567893" tel="1234567893" class="footer_content-list-item-tel">(+1) 123 456 7893</a>
+                        </li>
+                        <li>
+                            <a href="#!">Email:</a>
+                        </li>
+                        <li>
+                            <a href="mailto:name@email.com" class="footer_content-list-item-email">name@email.com</a>
+                        </li>
+                    </ul>
+                </section>
+            </section>
+            <section class="footer_content-right">
+                <section class="footer_content-right-list">
+                    <h2>Recieve new promotions</h2>
+                    <p>Duis ea tempor commodo amet reprehende</p>
+                    <div class="footer_content-right-list-input">
+                        <span class="footer_content-right-list-email">
+                            <span>
+                                <i class="fa-regular fa-envelope"></i>
+                                <input type="text" placeholder="Input your email">
+                            </span>
+                            <input type="submit" value="Subscribe">
+                        </span>
+                    </div>
+                    <div class="footer_content-right-list-icon">
+                        <a href="#!"><img src="./img/twitter.png" alt="twitter"></a>
+                        <a href="#!"><img src="./img/facebook.png" alt="facebook"></a>
+                        <a href="#!"><img src="./img/linkedIn.png"></a>
+                        <a href="#!"><img src="./img/youtube.png" alt="youtube"></a>
+                    </div>
+                    <div class="footer_content-right-list-copyright">
+                        <p>© 2022 Brand, Icn.</p>
+                        <ul>
+                            <li>Privacy</li>
+                            <li>Terms</li>
+                            <li>Sitemap</li>
+                        </ul>
+                    </div>
+                </section>
+            </section>
+        </div>
+    </footer>
+</body>
+</html>
